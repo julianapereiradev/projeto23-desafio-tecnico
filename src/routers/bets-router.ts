@@ -4,8 +4,8 @@ import { Router } from 'express';
 import { validateBody } from '../middlewares';
 //import { participantPost } from '../controllers';
 
-const participantRouter = Router();
+const betsRouter = Router();
 
 //participantRouter.post('/', validateBody(createParticipantSchema), participantPost);
 
-export { participantRouter };
+export { betsRouter };
