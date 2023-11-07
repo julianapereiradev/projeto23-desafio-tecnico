@@ -1,10 +1,4 @@
-import app, { init } from './app';
+import app from "./app";
 
-const port = +process.env.PORT || 5000;
-
-init().then(() => {
-  app.listen(port, () => {
-    /* eslint-disable-next-line no-console */
-    console.log(`Server is listening on port ${port}.`);
-  });
-});
+const PORT = process.env.PORT || 5000
+app.listen(PORT,()=>console.log("running at 5000"))

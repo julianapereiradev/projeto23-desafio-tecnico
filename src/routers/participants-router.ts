@@ -1,14 +1,12 @@
 import { Router } from 'express';
 
-//import { createParticipantSchema } from '../schemas';
-import { validateBody } from '../middlewares';
-import { createParticipantSchema } from '../schemas';
+import { validateBody } from '../middlewares/validation-middleware';
+import { createParticipantSchema } from '../schemas/participants-schemas';
 import { getParticipant, postParticipant } from '../controllers/participants-controller';
-//import { participantPost } from '../controllers';
 
 const participantsRouter = Router();
 
 participantsRouter.post('/', validateBody(createParticipantSchema), postParticipant);
-participantsRouter.get('/', validateBody(createParticipantSchema), getParticipant);
+participantsRouter.get('/', getParticipant);
 
-export { participantsRouter };
+export default participantsRouter;

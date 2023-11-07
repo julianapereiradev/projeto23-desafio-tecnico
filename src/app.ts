@@ -1,30 +1,19 @@
-import 'reflect-metadata';
+import Express,{Request, Response} from "express"
 import 'express-async-errors';
-import express, { Express } from 'express';
-import cors from 'cors';
-import { handleApplicationErrors } from './middlewares';
-import { loadEnv, connectDb, disconnectDB } from './database';
-import { betsRouter, gamesRouter, participantsRouter } from './routers';
+import cors from "cors"
+import participantsRouter from "./routers/participants-router";
+import gamesRouter from "./routers/games-router";
+import { connectDb } from "./database/database";
+import betsRouter from "./routers/bets-router";
+import { handleApplicationErrors } from "./middlewares/error-handling-middleware";
 
-loadEnv();
-
-const app = express();
-app
-  .use(cors())
-  .use(express.json())
-  .get('/health', (_req, res) => res.send('OK!!!'))
-  .use('/participants', participantsRouter)
-  .use('/games', gamesRouter)
-  .use('/bets', betsRouter)
-  .use(handleApplicationErrors);
-
-export function init(): Promise<Express> {
-  connectDb();
-  return Promise.resolve(app);
-}
-
-export async function close(): Promise<void> {
-  await disconnectDB();
-}
-
-export default app;
+connectDb()
+const app = Express()
+app.use(Express.json())
+app.use(cors())
+app.get("/health", (req: Request, res: Response) => res.send("OK!!!"));
+app.use("/participants", participantsRouter)
+app.use("/games", gamesRouter)
+app.use("/bets", betsRouter)
+app.use(handleApplicationErrors)
+export default app

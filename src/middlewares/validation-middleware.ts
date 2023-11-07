@@ -1,17 +1,16 @@
-import { Request, Response, NextFunction} from "express";
-import { Schema } from "joi";
-
-export function validateBody(schema: Schema) {
-    return (req: Request, res: Response, next: NextFunction) => {
-      const { error } = schema.validate(req.body, { abortEarly: false });
-  
-      if (error) {
-        const errorMessages = error.details.map((e) => e.message);
-        console.log(errorMessages);
-        return res.status(422).send(errorMessages);
-      }
-  
-      next();
-    };
-  }
-  
+import { Request, Response, NextFunction } from "express";
+import { ObjectSchema } from "joi";
+export function validateBody(schema: ObjectSchema) {
+  return (req: Request, res: Response, next: NextFunction) => {
+    const { error } = schema.validate(req.body, {
+      abortEarly: false,
+      convert: false,
+    });
+    if (error) {
+      return res
+        .status(400)
+        .send({ type: "invalid body!", message: error.message });
+    }
+    next();
+  };
+}

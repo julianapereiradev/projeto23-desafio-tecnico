@@ -7,6 +7,11 @@ async function createParticipant(participantData: ParticipantProtocol) {
   });
 }
 
+async function getParticipants() {
+  return await prisma.participant.findMany()
+}
+
 export const participantsRepository = {
 createParticipant,
+getParticipants
 };
