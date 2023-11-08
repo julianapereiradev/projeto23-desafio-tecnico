@@ -15,3 +15,8 @@ export type BetProtocol = {
   gameId: number;
   participantId: number;
 };
+
+export type FinalScoreProtocol = {
+  homeTeamScore: number;
+  awayTeamScore: number;
+};

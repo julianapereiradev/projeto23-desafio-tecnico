@@ -30,6 +30,7 @@ export function invalidRequestException(message?: string){
     }
 }
 
+//Começa aqui:
 
 export function notMinimumBalance(message?: string){
     return {
