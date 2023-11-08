@@ -19,9 +19,21 @@ async function getGameId (id: number) {
   });
 };
 
+async function findBetsByGameId(id: number) {
+  return prisma.game.findFirst({
+    where: {
+      id,
+    },
+    include: {
+      Bets: true,
+    },
+  });
+}
+
 
 export const gamesRepository = {
 createGame,
 getGames,
-getGameId
+getGameId,
+findBetsByGameId
 };

@@ -16,3 +16,12 @@ export async function getGames(req: Request, res: Response) {
   
   return res.status(httpStatus.OK).send(games);
 }
+
+export async function getAllBetsByGameId(req: Request, res: Response) {
+  const id = parseInt(req.params.id);
+  
+  const gameBets = await gameService.getBetsByGame(id);
+  
+  return res.status(httpStatus.OK).send(gameBets);
+}
+

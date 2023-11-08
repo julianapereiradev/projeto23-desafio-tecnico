@@ -17,9 +17,18 @@ async function getGames() {
   return resultGetGame;
 }
 
+async function getBetsByGame(gameId: number) {
+  const betsByGame = await gamesRepository.findBetsByGameId(gameId);
+  if (!betsByGame) throw notFoundException("Esse id de jogo não existe no banco");;
+
+  return betsByGame;
+}
+
+
 const gameService = {
   postGames,
-  getGames
+  getGames,
+  getBetsByGame
 };
 
 export default gameService;
