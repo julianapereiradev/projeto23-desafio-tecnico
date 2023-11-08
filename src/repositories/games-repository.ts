@@ -11,8 +11,17 @@ async function getGames() {
   return await prisma.game.findMany()
 }
 
+async function getGameId (id: number) {
+  return prisma.game.findUnique({
+    where: {
+      id,
+    },
+  });
+};
+
 
 export const gamesRepository = {
 createGame,
-getGames
+getGames,
+getGameId
 };

@@ -1,11 +1,10 @@
 import { Router } from 'express';
-
-//import { createParticipantSchema } from '../schemas';
-//import { validateBody } from '../middlewares';
-//import { participantPost } from '../controllers';
+import { validateBody } from '../middlewares/validation-middleware';
+import { createBetSchema } from '../schemas/bets-schemas';
+import { postBet } from '../controllers/bets-controller';
 
 const betsRouter = Router();
 
-//participantRouter.post('/', validateBody(createParticipantSchema), participantPost);
+betsRouter.post('/', validateBody(createBetSchema), postBet);
 
 export default betsRouter;

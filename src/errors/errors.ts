@@ -38,3 +38,27 @@ export function notMinimumBalance(message?: string){
         message: message || "Invalid balance"
     }
 }
+
+export function gameAlreadyFinished(message?: string){
+    return {
+        type: "application",
+        code: 409,
+        message: message || "Finished Game"
+    }
+}
+
+export function betAlreadyRegistered(message?: string){
+    return {
+        type: "application",
+        code: 409,
+        message: message || "Bet already registered"
+    }
+}
+
+export function insufficientFunds(message?: string){
+    return {
+        type: "application",
+        code: 400,
+        message: message || "insufficient funds"
+    }
+}

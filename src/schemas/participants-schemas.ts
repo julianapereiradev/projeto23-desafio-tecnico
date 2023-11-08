@@ -1,7 +1,7 @@
 import Joi from 'joi';
-//import { CreateUserParams } from '@/services/users-service';
+import { ParticipantProtocol } from 'protocols';
 
-export const createParticipantSchema = Joi.object({
+export const createParticipantSchema = Joi.object<ParticipantProtocol>({
   name: Joi.string().required(),
   balance: Joi.number().integer().required()
 });

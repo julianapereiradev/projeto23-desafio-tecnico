@@ -11,7 +11,31 @@ async function getParticipants() {
   return await prisma.participant.findMany()
 }
 
+
+async function getParticipantId (id: number) {
+  return prisma.participant.findUnique({
+    where: {
+      id,
+    },
+  });
+};
+
+async function subtractingBalanceAfterBet (participantId: number, betAmount: number) {
+  return prisma.participant.update({
+    where: {
+      id: participantId,
+    },
+    data: {
+      balance: {
+        decrement: betAmount,
+      },
+    },
+  });
+};
+
 export const participantsRepository = {
 createParticipant,
-getParticipants
+getParticipants,
+getParticipantId,
+subtractingBalanceAfterBet
 };

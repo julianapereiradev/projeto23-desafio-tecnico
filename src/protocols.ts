@@ -5,5 +5,13 @@ export type ParticipantProtocol = {
 
 export type GameProtocol = {
   homeTeamName: string;
-	awayTeamName: string;
+  awayTeamName: string;
+};
+
+export type BetProtocol = {
+  homeTeamScore: number;
+  awayTeamScore: number;
+  amountBet: number;
+  gameId: number;
+  participantId: number;
 };
