@@ -1,11 +1,11 @@
 import { Router } from 'express';
-
-//import { createParticipantSchema } from '../schemas';
-//import { validateBody } from '../middlewares';
-//import { participantPost } from '../controllers';
+import { validateBody } from '../middlewares/validation-middleware';
+import { createGameSchema } from '../schemas/games-schemas';
+import { postGame, getGames } from '../controllers/games-controller';
 
 const gamesRouter = Router();
 
-//participantRouter.post('/', validateBody(createParticipantSchema), participantPost);
+gamesRouter.post('/', validateBody(createGameSchema), postGame);
+gamesRouter.get('/', getGames );
 
 export default gamesRouter;
