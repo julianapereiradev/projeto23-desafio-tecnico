@@ -17,6 +17,9 @@
     "dev:migration:run": "npm run dev:load-envs prisma migrate deploy",
     "prod": "nodemon --watch 'src/' --exec 'ts-node -r ./src/server.ts' -e ts"
   },
+  "engines": {
+    "node": ">=18.18.0 <19.0.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
