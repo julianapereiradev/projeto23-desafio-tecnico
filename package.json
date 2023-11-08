@@ -6,7 +6,6 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc -p tsconfig.build.json",
-    "prepare": "husky install",
     "start": "node dist/server.js",
     "migration:dev": "prisma migrate dev",
     "dev": "cross-env NODE_ENV=development nodemon --watch 'src/' --exec 'ts-node -r ./src/server.ts' -e ts",
