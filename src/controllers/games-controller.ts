@@ -15,25 +15,25 @@ export async function postGame(req: Request, res: Response) {
 
 export async function getGames(req: Request, res: Response) {
   const games = await gameService.getGames();
-  
+
   return res.status(httpStatus.OK).send(games);
 }
 
 export async function getAllBetsByGameId(req: Request, res: Response) {
   const id = parseInt(req.params.id);
-  
+
   const gameBets = await gameService.getBetsByGame(id);
-  
+
   return res.status(httpStatus.OK).send(gameBets);
 }
 
 export async function finishGame(req: Request, res: Response) {
   const gameId = parseInt(req.params.id);
-  const finalScore = req.body as FinalScoreProtocol
-
+  const finalScore = req.body as FinalScoreProtocol;
 
   const game = await gamesRepository.getGameId(gameId);
-  if (!game || game.isFinished) throw gameAlreadyFinished("O jogo já foi finalizado ou não foi encontrado")
+  if (!game || game.isFinished)
+    throw gameAlreadyFinished("O jogo já foi finalizado ou não foi encontrado");
 
   const updatedGame = await gameService.finishGame(gameId, finalScore);
 
@@ -41,5 +41,3 @@ export async function finishGame(req: Request, res: Response) {
 
   return res.status(httpStatus.OK).send(updatedGame);
 }
-
-
