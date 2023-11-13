@@ -7,17 +7,7 @@ async function createBet(betData: BetProtocol) {
   });
 }
 
-async function isBetAlreadyRegistered (gameId: number, participantId: number) {
-    return prisma.bet.findFirst({
-      where: {
-        gameId: gameId,
-        participantId: participantId,
-      },
-    });
-  };
-  
 
 export const betsRepository = {
 createBet,
-isBetAlreadyRegistered
 };

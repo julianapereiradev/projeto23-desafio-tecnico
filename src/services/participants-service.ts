@@ -13,7 +13,7 @@ async function postParticipants(participant: ParticipantProtocol) {
 async function getParticipants() {
   const resultGetParticipant = await participantsRepository.getParticipants();
   if (resultGetParticipant.length === 0)
-    throw notFoundException("Não há participantes no banco de dados");
+    throw notFoundException("There are no participants in the database");
   return resultGetParticipant;
 }
 

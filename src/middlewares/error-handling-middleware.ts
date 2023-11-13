@@ -6,7 +6,7 @@ export function handleApplicationErrors(
   res: Response,
   next: NextFunction
 ) {
-  console.log(err);
+
   if (err?.type === "application")
     return res.status(err.code).send(err.message);
   return res.sendStatus(500);

@@ -15,14 +15,14 @@ async function postGames(game: GameProtocol) {
 async function getGames() {
   const resultGetGame = await gamesRepository.getGames();
   if (resultGetGame.length === 0)
-    throw notFoundException("Não há jogos cadastrados");
+    throw notFoundException("There are no games registered");
   return resultGetGame;
 }
 
 
 async function getBetsByGame(gameId: number) {
   const betsByGame = await gamesRepository.findBetsByGameId(gameId);
-  if (!betsByGame) throw notFoundException("Esse id de jogo não existe no banco");;
+  if (!betsByGame) throw notFoundException("This game ID does not exist in the bank");;
 
   return betsByGame;
 }
@@ -38,7 +38,7 @@ async function calculateAndUpdateBets(gameId: number, finalScore: FinalScoreProt
   const bets = await gamesRepository.searchBetsByGameId(gameId);
 
   if (!bets) {
-    throw notFoundException("Apostas para este jogo não encontradas.");
+    throw notFoundException("Bets for this game not found.");
   }
 
   const winningBets = bets.filter((bet) => bet.homeTeamScore === finalScore.homeTeamScore && bet.awayTeamScore === finalScore.awayTeamScore);
@@ -46,7 +46,7 @@ async function calculateAndUpdateBets(gameId: number, finalScore: FinalScoreProt
   const totalBetAmount = bets.reduce((total, bet) => total + bet.amountBet, 0);
 
   for (const bet of bets) {
-    const { homeTeamScore, awayTeamScore, amountBet, participantId, status } = bet;
+    const { homeTeamScore, awayTeamScore, amountBet, participantId } = bet;
 
     const isCorrectBet = homeTeamScore === finalScore.homeTeamScore && awayTeamScore === finalScore.awayTeamScore;
 

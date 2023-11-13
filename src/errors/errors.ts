@@ -6,32 +6,6 @@ export function notFoundException(message?: string){
     }
 }
 
-export function forbiddenException(message?: string){
-    return {
-        type: "application",
-        code: 403,
-        message: message || "Forbidden!"
-    }
-}
-
-export function balanceRequired(message?: string){
-    return {
-        type: "application",
-        code: 400,
-        message: message || "insufficient funds"
-    }
-}
-
-export function invalidRequestException(message?: string){
-    return {
-        type: "application",
-        code: 400,
-        message: message || "Invalid format"
-    }
-}
-
-//Começa aqui:
-
 export function notMinimumBalance(message?: string){
     return {
         type: "application",
@@ -48,18 +22,11 @@ export function gameAlreadyFinished(message?: string){
     }
 }
 
-export function betAlreadyRegistered(message?: string){
-    return {
-        type: "application",
-        code: 409,
-        message: message || "Bet already registered"
-    }
-}
 
 export function insufficientFunds(message?: string){
     return {
         type: "application",
         code: 400,
-        message: message || "insufficient funds"
+        message: message || "Insufficient funds"
     }
 }

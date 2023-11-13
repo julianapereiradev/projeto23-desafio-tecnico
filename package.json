@@ -12,6 +12,7 @@
     "test:load-envs": "dotenv -e .env.test",
     "test": "cross-env NODE_ENV=test jest --passWithNoTests --runInBand",
     "test:migration:run": "npm run test:load-envs prisma migrate deploy",
+    "test:coverage": "npm run test:load-envs -- jest -- --coverage --runInBand",
     "dev:load-envs": "dotenv -e .env.development",
     "dev:migration:run": "npm run dev:load-envs prisma migrate deploy",
     "prod": "nodemon --watch 'src/' --exec 'ts-node -r ./src/server.ts' -e ts"
