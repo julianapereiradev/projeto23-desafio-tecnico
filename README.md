@@ -1,4 +1,4 @@
-# Quer Apostar Quanto?
+# Quer Apostar Quanto? .
 
 ## 1. Seção Inicial
 
@@ -67,7 +67,16 @@ As principais tecnologias utilizadas neste projeto foram:
 Para rodar o projeto localmente, siga os seguintes passos:
 
 1. Execute `npm i` para instalar as dependências.
-2. ...
-3. ... (outros passos conforme necessário)
+2. Crie as variáveis de ambiente: .env (produção), .env.development (desenvolvimento) e .env.test (teste)
+3. Coloque em cada um delas o seguinte comando:
 
-Lembre-se de configurar as variáveis de ambiente, como as credenciais do banco de dados, antes de iniciar o projeto localmente.
+.env: `DATABASE_URL = "postgres://apostar_1iib_user:SdbspystZtVThePSO7LyX5pCVyTVyH7x@dpg-cl5u9id6fh7c73cttar0-a.oregon-postgres.render.com/apostar_1iib"`
+
+.env.development: `DATABASE_URL=postgres://postgres:SENHA@localhost:5432/NOME-DO-BANCO`
+
+.env.test: `DATABASE_URL=postgres://postgres:SENHA@localhost:5432/NOME-DO-BANCO-TEST`
+
+4. Rodar dev:migration:run
+5. Rodar test:migration:run
+6. npx prisma migrate dev 
+1. npm run dev
