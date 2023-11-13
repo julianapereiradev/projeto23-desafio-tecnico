@@ -70,7 +70,7 @@ Para rodar o projeto localmente, siga os seguintes passos:
 2. Crie as variáveis de ambiente: .env (produção), .env.development (desenvolvimento) e .env.test (teste)
 3. Coloque em cada um delas o seguinte comando:
 
-.env: `DATABASE_URL = "postgres://apostar_1iib_user:SdbspystZtVThePSO7LyX5pCVyTVyH7x@dpg-cl5u9id6fh7c73cttar0-a.oregon-postgres.render.com/apostar_1iib"`
+.env: `DATABASE_URL = "colocar o link de deploy do seu banco vazio aqui"`
 
 .env.development: `DATABASE_URL=postgres://postgres:SENHA@localhost:5432/NOME-DO-BANCO`
 
