@@ -9,11 +9,7 @@ import {
 
 const participantsRouter = Router();
 
-participantsRouter.post(
-  "/",
-  validateBody(createParticipantSchema),
-  postParticipant
-);
+participantsRouter.post("/", validateBody(createParticipantSchema), postParticipant);
 participantsRouter.get("/", getParticipant);
 
 export default participantsRouter;

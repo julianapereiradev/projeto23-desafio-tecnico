@@ -9,9 +9,7 @@ import { betsRepository } from "../repositories/bets-repository";
 import { gamesRepository } from "../repositories/games-repository";
 
 async function postBets(betData: BetProtocol) {
-  const participant = await participantsRepository.getParticipantId(
-    betData.participantId
-  );
+  const participant = await participantsRepository.getParticipantId(betData.participantId);
   if (!participant)
     throw notFoundException("There is no such participant in the database");
 
@@ -20,18 +18,12 @@ async function postBets(betData: BetProtocol) {
     throw notFoundException("There is no such game registered in the database");
 
   if (game.isFinished)
-    throw gameAlreadyFinished(
-      "You cannot place a bet on a game that has already finished!"
-    );
+    throw gameAlreadyFinished("You cannot place a bet on a game that has already finished!");
 
   if (participant.balance < betData.amountBet)
     throw insufficientFunds("Your bet amount exceeds your balance!");
 
-  await participantsRepository.subtractingBalanceAfterBet(
-    participant.id,
-    betData.amountBet
-  );
-
+  await participantsRepository.subtractingBalanceAfterBet(participant.id, betData.amountBet);
   const resultPostBet = await betsRepository.createBet(betData);
   return resultPostBet;
 }

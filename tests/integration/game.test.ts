@@ -135,7 +135,6 @@ describe("POST /games/:id/finish", () => {
       homeTeamScore: 2,
       awayTeamScore: 1,
     });
-
     expect(response.status).toBe(httpStatus.OK);
     expect(response.body).toEqual(
       expect.objectContaining({

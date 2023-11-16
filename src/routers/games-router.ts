@@ -16,10 +16,6 @@ const gamesRouter = Router();
 gamesRouter.post("/", validateBody(createGameSchema), postGame);
 gamesRouter.get("/", getGames);
 gamesRouter.get("/:id", getAllBetsByGameId);
-gamesRouter.post(
-  "/:id/finish",
-  validateBody(createFinalScoreSchema),
-  finishGame
-);
+gamesRouter.post("/:id/finish", validateBody(createFinalScoreSchema), finishGame);
 
 export default gamesRouter;

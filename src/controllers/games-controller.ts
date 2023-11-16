@@ -32,7 +32,7 @@ export async function finishGame(req: Request, res: Response) {
 
   const game = await gamesRepository.getGameId(gameId);
   if (!game || game.isFinished)
-    throw gameAlreadyFinished("O jogo já foi finalizado ou não foi encontrado");
+    throw gameAlreadyFinished("The game has already been completed or could not be found");
 
   const updatedGame = await gameService.finishGame(gameId, finalScore);
 
