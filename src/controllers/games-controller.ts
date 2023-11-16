@@ -23,8 +23,6 @@ export async function getAllBetsByGameId(req: Request, res: Response) {
   const id = parseInt(req.params.id);
 
   const gameBets = await gameService.getBetsByGame(id);
-  gameBets['bets'] = gameBets['Bets']
-  delete gameBets['Bets']
   return res.status(httpStatus.OK).send(gameBets);
 }
 

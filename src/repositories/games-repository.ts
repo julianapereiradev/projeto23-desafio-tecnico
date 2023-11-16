@@ -25,7 +25,7 @@ async function findBetsByGameId(id: number) {
       id,
     },
     include: {
-      Bets: true,
+      bets: true,
     },
   });
 }
