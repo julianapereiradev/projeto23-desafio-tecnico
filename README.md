@@ -76,7 +76,6 @@ Para rodar o projeto localmente, siga os seguintes passos:
 
 .env.test: `DATABASE_URL=postgres://postgres:SENHA@localhost:5432/NOME-DO-BANCO-TEST`
 
-4. Rodar dev:migration:run
-5. Rodar test:migration:run
-6. npx prisma migrate dev 
-1. npm run dev
+4. Rodar npm run dev:migration:run
+5. Rodar npm run test:migration:run
+6. npm run dev
