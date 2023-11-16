@@ -33,6 +33,15 @@ describe("POST /bet", () => {
     expect(response.status).toBe(httpStatus.NOT_FOUND);
   });
 
+  it("should return 400 if bet is negative or zero", async () => {
+    const participant = await addParticipant();
+    const game = await addGame();
+    const response = await server
+      .post("/bets")
+      .send(createBet(game.id, participant.id, -200));
+    expect(response.status).toBe(httpStatus.BAD_REQUEST);
+  });
+
   it("should return 409 if game is already finished", async () => {
     const participant = await addParticipant();
     const game = await addFinishedGame();
