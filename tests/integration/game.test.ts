@@ -91,7 +91,7 @@ describe("games /GET by id route", () => {
         homeTeamScore: game.homeTeamScore,
         awayTeamScore: game.awayTeamScore,
         isFinished: game.isFinished,
-        Bets: expect.any(Array),
+        bets: expect.any(Array),
       })
     );
   });
