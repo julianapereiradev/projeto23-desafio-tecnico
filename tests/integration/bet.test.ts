@@ -2,8 +2,8 @@ import httpStatus from "http-status";
 import supertest from "supertest";
 import app, { init } from "../../src/app";
 import { cleanDb } from "../helpers/helpers";
-import { addParticipant } from "../factories/participants-factory";
-import { addFinishedGame, addGame } from "../factories/games-factory";
+import { addParticipant, createParticipant } from "../factories/participants-factory";
+import { addFinishedGame, addGame, createGame } from "../factories/games-factory";
 import { createBet } from "../factories/bets-factory";
 
 const server = supertest(app);
@@ -58,6 +58,24 @@ describe("POST /bet", () => {
       .post("/bets")
       .send(createBet(game.id, participant.id, participant.balance + 8500));
     expect(response.status).toBe(httpStatus.BAD_REQUEST);
+  });
+
+  it('Should withdraw the amountBet from participant balance when there is a valid data', async () => {
+    const participant = await addParticipant();
+    const game = await addGame();
+
+    const validBody = {
+      gameId: game.id,
+      participantId: participant.id,
+      homeTeamScore: 3,
+      awayTeamScore: 2,
+      amountBet: participant.balance - 1000,
+    };
+
+    const { status } = await server.post("/bets").send(validBody);
+    const { body } = await server.get('/participants')
+    expect(status).toBe(httpStatus.CREATED);
+    expect(body[0].balance).toBe(1000);
   });
 
   it("should return 201 with bet created", async () => {
