@@ -4,7 +4,7 @@
 
 O projeto "Quer Apostar Quanto?" faz parte do desafio proposto pela Driven Education. Neste desafio, implementei o back-end de um sistema de apostas de uma casa de apostas que deseja automatizar os seus processos para competir com esses aplicativos.
 
-[Link para a demo deployada](https://apostarbackend.onrender.com/)
+[Link do deploy funcional](https://apostarbackend.onrender.com/)
 
 ## 2. Sobre
 
@@ -67,10 +67,8 @@ As principais tecnologias utilizadas neste projeto foram:
 Para rodar o projeto localmente, siga os seguintes passos:
 
 1. Execute `npm i` para instalar as dependências.
-2. Crie as variáveis de ambiente: .env (produção), .env.development (desenvolvimento) e .env.test (teste)
+2. Crie as variáveis de ambiente: .env.development (desenvolvimento) e .env.test (teste)
 3. Coloque em cada um delas o seguinte comando:
-
-.env: `DATABASE_URL = "colocar o link de deploy do seu banco vazio aqui"`
 
 .env.development: `DATABASE_URL=postgres://postgres:SENHA@localhost:5432/NOME-DO-BANCO`
 
@@ -79,3 +77,4 @@ Para rodar o projeto localmente, siga os seguintes passos:
 4. Rodar npm run dev:migration:run
 5. Rodar npm run test:migration:run
 6. npm run dev
+* Exemplo de rota local para realizar os testes em API's: `localhost:5000/bets`
