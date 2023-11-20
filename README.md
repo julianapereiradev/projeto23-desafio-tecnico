@@ -70,9 +70,9 @@ Para rodar o projeto localmente, siga os seguintes passos:
 2. Crie as variáveis de ambiente: .env.development (desenvolvimento) e .env.test (teste)
 3. Coloque em cada um delas o seguinte comando:
 
-.env.development: `DATABASE_URL=postgres://postgres:SENHA@localhost:5432/NOME-DO-BANCO`
+.env.development: `DATABASE_URL=postgres://USERNAME:SENHA@localhost:5432/NOME-DO-BANCO`
 
-.env.test: `DATABASE_URL=postgres://postgres:SENHA@localhost:5432/NOME-DO-BANCO-TEST`
+.env.test: `DATABASE_URL=postgres://USERNAME:SENHA@localhost:5432/NOME-DO-BANCO-TEST`
 
 4. Rodar npm run dev:migration:run
 5. Rodar npm run test:migration:run
