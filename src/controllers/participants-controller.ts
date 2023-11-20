@@ -8,7 +8,7 @@ export async function postParticipant(req: Request, res: Response) {
   const body = req.body as ParticipantProtocol;
 
   if (body.balance < 1000)
-    throw notMinimumBalance("Não tem saldo mínimo para apostar!");
+    throw notMinimumBalance("No minimum balance to bet!");
 
   const participant = await participantService.postParticipants(body);
 

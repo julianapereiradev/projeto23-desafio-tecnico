@@ -2,7 +2,7 @@
 
 ## 1. Seção Inicial
 
-O projeto "Quer Apostar Quanto?" faz parte do desafio proposto pela Driven Education. Neste desafio, implementei o back-end de um sistema de apostas de uma casa de apostas que deseja automatizar os seus processos para competir com esses aplicativos.
+O projeto "Quer Apostar Quanto?" faz parte do desafio proposto pela Driven Education. Neste desafio, implementei o back-end de um sistema de apostas de uma casa de apostas que deseja automatizar os seus processos para competir com outros aplicativos de apostas.
 
 [Link do deploy funcional](https://apostarbackend.onrender.com/)
 
