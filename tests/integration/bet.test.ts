@@ -60,7 +60,7 @@ describe("POST /bet", () => {
     expect(response.status).toBe(httpStatus.BAD_REQUEST);
   });
 
-  it('Should withdraw the amountBet from participant balance when there is a valid data', async () => {
+  it('Must decrease the participant s amountBet', async () => {
     const participant = await addParticipant();
     const game = await addGame();
 
